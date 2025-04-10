@@ -32,4 +32,6 @@ app.MapDefaultControllerRoute();
 
 app.MapRazorPages();
 
+DbInitializer.Seed(app);
+
 app.Run();
