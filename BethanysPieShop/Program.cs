@@ -9,6 +9,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IPieRepository, PieRepository>();
 
+builder.Services.AddSession();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<IShoppingCart, ShoppingCart>(sp=>ShoppingCart.GetCard(sp));
+
 builder.Services.AddDbContext<BethanysPieShopDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("BethanysPieShopDbContextConnection")));
 
