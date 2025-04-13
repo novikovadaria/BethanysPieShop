@@ -21,5 +21,8 @@ namespace BethanysPieShop.Models
             _context.Pies.Include(c => c.Category).Where(p => p.Category.CategoryName == category);
         
         public void SaveChanges() => _context.SaveChanges();
+
+        public IEnumerable<Pie> SearchPies(string searchQuery) => _context.Pies.Where(p => p.Name.Contains(searchQuery));
+
     }
 }

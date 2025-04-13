@@ -1,9 +1,10 @@
 ﻿using BethanysPieShop.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BethanysPieShop.MyDbContext
 {
-    public class BethanysPieShopDbContext : DbContext
+    public class BethanysPieShopDbContext : IdentityDbContext
     {
         public BethanysPieShopDbContext(DbContextOptions<BethanysPieShopDbContext> options)
             : base(options)
@@ -12,5 +13,8 @@ namespace BethanysPieShop.MyDbContext
         public DbSet<Pie> Pies { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<ShoppingCardItem> ShoppingCardItems { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+
     }
 }
